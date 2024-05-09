@@ -1,0 +1,56 @@
+create table projetoacelera.UnidadeInstituicao (
+	IDUNIDADEINST int NOT NULL,
+    NOMEUNIDADE varchar(100) NOT NULL,
+    CODTIPOUNIDADE int NOT NULL,
+    PRIMARY KEY (IDUNIDADEINST)    
+);
+
+create table projetoacelera.Transportadoras (
+	CNPJTRANSPORTADORA varchar(14) NOT NULL,
+    DESCTRANSPORTADORA varchar (100) NOT NULL
+);
+
+create table projetoacelera.Usuario (
+	IDUSUARIO varchar(30) NOT NULL,
+    IDUNIDADEINSTUSUARIO int NOT NULL,
+    DESCNOMEUSUARIO varchar(100) NOT NULL,
+    PRIMARY KEY (IDUSUARIO),
+    FOREIGN KEY (IDUNIDADEINSTUSUARIO) REFERENCES projetoacelera.UnidadeInstituicao(IDUNIDADEINST)
+);
+
+create table projetoacelera.TipoTerminal (
+	IDTIPOTERMINAL int NOT NULL,
+	DESCTERMINAL varchar(30) NOT NULL,
+    PRIMARY KEY (IDTIPOTERMINAL)
+);
+
+create table projetoacelera.Terminal (
+	IDUNIDADEINST int NOT NULL,
+    NUMTERMINAL int NOT NULL,
+    IDTIPOTERMINAL int NOT NULL,
+    IDUSUARIO varchar(30),
+    PRIMARY KEY (IDUNIDADEINST, NUMTERMINAL),
+    FOREIGN KEY (IDUNIDADEINST) REFERENCES projetoacelera.UnidadeInstituicao(IDUNIDADEINST),
+    FOREIGN KEY (IDTIPOTERMINAL) REFERENCES projetoacelera.TipoTerminal(IDTIPOTERMINAL), 
+	FOREIGN KEY (IDUSUARIO) REFERENCES projetoacelera.Usuario(IDUSUARIO)
+);
+
+create table projetoacelera.TransportadorasPA (
+	CNPJTRANSPORTADORA varchar(14) NOT NULL,
+    IDPONTOATENDIMENTO int NOT NULL,
+    PRIMARY KEY (CNPJTRANSPORTADORA, IDPONTOATENDIMENTO),
+    FOREIGN KEY (IDPONTOATENDIMENTO) REFERENCES projetoacelera.UnidadeInstituicao(IDUNIDADEINST)
+);
+
+create table projetoacelera.LimitesTerminal (
+	IDPONTOATENDIMENTO int NOT NULL,
+    CODIGOTIPOTERMINAL int NOT NULL,
+    LIM_SUPERIOR int,
+    LIM_INFERIOR int,
+    PRIMARY KEY (IDPONTOATENDIMENTO,CODIGOTIPOTERMINAL),
+    FOREIGN KEY (IDPONTOATENDIMENTO) REFERENCES projetoacelera.UnidadeInstituicao(IDUNIDADEINST),
+    FOREIGN KEY (CODIGOTIPOTERMINAL) REFERENCES projetoacelera.TipoTerminal(IDTIPOTERMINAL)
+);
+
+
+

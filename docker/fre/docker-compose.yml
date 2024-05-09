@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: acelera
+      MYSQL_DATABASE: acelera
+    ports:
+      - '3306:3306'
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: docker_dotNet
+    ports:
+      - '5000:5000'
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: docker_React
+    ports:
+      - '3000:3000'

@@ -1,0 +1,40 @@
+.login-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #004d40; 
+  color: white;
+  padding: 20px;
+}
+
+.sidebar .logo {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.sidebar .menu a {
+  display: block;
+  margin: 10px 0;
+}
+
+.main-content header {
+  background-color: #4db6ac;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-info span {
+  margin-right: 15px;
+}
+
+.export-btn {
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+

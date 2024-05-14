@@ -5,8 +5,8 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './shared/components/login/login.component.html',
+  styleUrl: './shared/components/login/login.component.css',
 })
 export class AppComponent {
   title = 'Numerario-Acelera-DotNet';

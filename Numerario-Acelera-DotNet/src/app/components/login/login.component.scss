@@ -12815,6 +12815,12 @@ form.user .btn-user {
   line-height: 1;
   width: 12.5rem;
 }
+.center {
+        display: contents;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 @-webkit-keyframes noise-anim {
   0% {
     clip: rect(22px, 9999px, 5px, 0);

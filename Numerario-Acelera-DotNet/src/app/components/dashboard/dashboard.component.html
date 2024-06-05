@@ -28,41 +28,29 @@
             <div class="sidebar-brand-text mx-3"><span>SICOOB</span></div></a
           >
           <hr class="sidebar-divider my-0" />
-          <ul class="navbar-nav text-light" id="accordionSidebar">
+         <ul class="navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item">
+              <a class="nav-link active" href="login.component.html"
+                ><span>Login</span></a
+              >
+            </li>
             <li class="nav-item">
               <a class="nav-link active" href="index.html"
-                ><i class="fas fa-tachometer-alt"></i
-                ><span>TRANSPORTADORAS</span></a
+                ><span>Dashboard</span></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile.html"
-                ><i class="fas fa-user"></i><span>---</span></a
+              <a class="nav-link active" href="register.html"
+                ><span>Balance</span></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="table.html"
-                ><i class="fas fa-table"></i><span>INTERBANCÁRIAS</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html"
-                ><i class="far fa-user-circle"></i><span>LOGIN</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.html"
-                ><i class="fas fa-user-circle"></i
-                ><span>SALDOS</span></a
+              <a class="nav-link active" href="interbanking.component.html"
+                ><span>Interbanking</span></a
               >
             </li>
           </ul>
           <div class="text-center d-none d-md-inline">
-            <button
-              class="btn rounded-circle border-0"
-              id="sidebarToggle"
-              type="button"
-            ></button>
           </div>
         </div>
       </nav>
@@ -88,7 +76,7 @@
                     type="text"
                     placeholder="Pesquisar"
                   /><button class="btn btn-primary py-0" type="button">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
 </svg>
                   </button>
@@ -440,49 +428,6 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-7 col-xl-8">
-                <div class="card shadow mb-4">
-                  <div
-                    class="card-header d-flex justify-content-between align-items-center"
-                  >
-                    <h6 class="text-primary fw-bold m-0">
-                      GERAL DE RECEBIMENTOS
-                    </h6>
-                    <div class="dropdown no-arrow">
-                      <button
-                        class="btn btn-link btn-sm dropdown-toggle"
-                        aria-expanded="false"
-                        data-bs-toggle="dropdown"
-                        type="button"
-                      >
-                        <i class="fas fa-ellipsis-v text-gray-400"></i>
-                      </button>
-                      <div
-                        class="dropdown-menu shadow dropdown-menu-end animated--fade-in"
-                      >
-                        <p class="text-center dropdown-header">
-                          dropdown header:
-                        </p>
-                        <a class="dropdown-item" href="#">&nbsp;Action</a
-                        ><a class="dropdown-item" href="#"
-                          >&nbsp;Another action</a
-                        >
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"
-                          >&nbsp;Something else here</a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="chart-area">
-                      <canvas
-                        data-bss-chart='{"type":"line","data":{"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],"datasets":[{"label":"Earnings","fill":true,"data":["0","10000","5000","15000","10000","20000","15000","25000"],"backgroundColor":"rgba(78, 115, 223, 0.05)","borderColor":"rgba(78, 115, 223, 1)"}]},"options":{"maintainAspectRatio":false,"legend":{"display":false,"labels":{"fontStyle":"normal"}},"title":{"fontStyle":"normal"},"scales":{"xAxes":[{"gridLines":{"color":"rgb(234, 236, 244)","zeroLineColor":"rgb(234, 236, 244)","drawBorder":false,"drawTicks":false,"borderDash":["2"],"zeroLineBorderDash":["2"],"drawOnChartArea":false},"ticks":{"fontColor":"#858796","fontStyle":"normal","padding":20}}],"yAxes":[{"gridLines":{"color":"rgb(234, 236, 244)","zeroLineColor":"rgb(234, 236, 244)","drawBorder":false,"drawTicks":false,"borderDash":["2"],"zeroLineBorderDash":["2"]},"ticks":{"fontColor":"#858796","fontStyle":"normal","padding":20}}]}}}'
-                      ></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="col-lg-5 col-xl-4">
                 <div class="card shadow mb-4">
                   <div
@@ -504,22 +449,12 @@
                         <p class="text-center dropdown-header">
                           dropdown header:
                         </p>
-                        <a class="dropdown-item" href="#">&nbsp;Action</a
-                        ><a class="dropdown-item" href="#"
-                          >&nbsp;Another action</a
-                        >
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"
-                          >&nbsp;Something else here</a
-                        >
                       </div>
                     </div>
                   </div>
                   <div class="card-body">
                     <div class="chart-area">
-                      <canvas
-                        data-bss-chart='{"type":"doughnut","data":{"labels":["Direct","Social","Referral"],"datasets":[{"label":"","backgroundColor":["#4e73df","#1cc88a","#36b9cc"],"borderColor":["#ffffff","#ffffff","#ffffff"],"data":["50","30","15"]}]},"options":{"maintainAspectRatio":false,"legend":{"display":false,"labels":{"fontStyle":"normal"}},"title":{"fontStyle":"normal"}}}'
-                      ></canvas>
                     </div>
                     <div class="text-center small mt-4">
                       <span class="me-2"

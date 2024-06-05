@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>TRANSPORTADORAS</title>
+    <title></title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
@@ -36,23 +36,18 @@
           <hr class="sidebar-divider my-auto" />
           <ul class="navbar-nav text-light" id="accordionSidebar">
             <li class="nav-item">
-              <a class="nav-link active" href="login.component.html"
-                ><span>Login</span></a
+              <a class="nav-link active" routerLink="/login"
+                >Login</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="index.html"
-                ><span>Dashboard</span></a
+              <a class="nav-link active" routerLink=""
+                >Dashboard</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="register.html"
-                ><span>Balance</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="interbanking.component.html"
-                ><span>Interbanking</span></a
+              <a class="nav-link active" routerLink=""
+                >Balance</a
               >
             </li>
           </ul>
@@ -143,37 +138,15 @@
                       data-bs-toggle="dropdown"
                       href="#"
                       ><span class="d-none d-lg-inline me-2 text-gray-600 small"
-                        >NOME DA TRANSPORTADORA</span
+                        ></span
                       ><img
                         class="border rounded-circle img-profile"
-                        src="assets/img/avatars/avatar1.jpeg"
+                        src="/src/favicon.ico"
                     /></a>
                     <div
                       class="dropdown-menu shadow dropdown-menu-end animated--grow-in"
                     >
-                      <a class="dropdown-item" href="#"
-                        ><i
-                          class="fas fa-user fa-sm fa-fw me-2 text-gray-400"
-                        ></i
-                        >&nbsp;Profile</a
-                      ><a class="dropdown-item" href="#"
-                        ><i
-                          class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"
-                        ></i
-                        >&nbsp;Settings</a
-                      ><a class="dropdown-item" href="#"
-                        ><i
-                          class="fas fa-list fa-sm fa-fw me-2 text-gray-400"
-                        ></i
-                        >&nbsp;Activity log</a
-                      >
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#"
-                        ><i
-                          class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"
-                        ></i
-                        >&nbsp;Logout</a
-                      >
                     </div>
                   </div>
                 </li>
@@ -237,6 +210,7 @@
                         <th>ÚLTIMA ATUALIZAÇÃO</th>
                         <th>DATA</th>
                         <th>QUANTIA</th>
+                        <th>GRÁFICO</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -247,11 +221,12 @@
                         <td>04/06/2024</td>
                         <td>
                           $162,700
-                          <button class="btn btn-primary py-0" type="button">
+                        </td>
+                        <td><button class="btn btn-primary py-0" type="button">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              width="27"
-                              height="20"
+                              width="40"
+                              height="40"
                               fill="currentColor"
                               class="bi bi-bar-chart-line-fill"
                               viewBox="0 0 16 16"
@@ -260,8 +235,7 @@
                                 d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1z"
                               />
                             </svg>
-                          </button>
-                        </td>
+                          </button></td>
                       </tr>
                       <tr>
                         <td>P.A. Londrina</td>
@@ -270,11 +244,12 @@
                         <td>25/05/2024<br /></td>
                         <td>
                           $1,200,000
-                          <button class="btn btn-primary py-0" type="button">
+                        </td>
+                         <td><button class="btn btn-primary py-0" type="button">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              width="27"
-                              height="20"
+                              width="40"
+                              height="40"
                               fill="currentColor"
                               class="bi bi-bar-chart-line-fill"
                               viewBox="0 0 16 16"
@@ -283,8 +258,7 @@
                                 d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1z"
                               />
                             </svg>
-                          </button>
-                        </td>
+                          </button></td>
                       </tr>
                       <tr></tr>
                     </tbody>

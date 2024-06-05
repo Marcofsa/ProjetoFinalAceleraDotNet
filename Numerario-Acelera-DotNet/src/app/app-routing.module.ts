@@ -5,9 +5,9 @@ import { BalanceComponent } from './components/balance/balance.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path: 'Login', component: LoginComponent},
-  {path: 'Balance', component: BalanceComponent},
-  {path: 'Dashboard', component: DashboardComponent}
+  {path: 'login', component: LoginComponent },
+  {path: 'balance', component: BalanceComponent},
+  {path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({

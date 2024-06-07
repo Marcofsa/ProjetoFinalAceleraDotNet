@@ -11,23 +11,23 @@ public partial class ApplicationDbContext : DbContext
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-    public virtual DbSet<LimitesTerminal> Limitesterminals { get; set; }
+    public virtual DbSet<LimitesTerminal> LimitesTerminais { get; set; }
 
-    public virtual DbSet<MovimentacaoPA> Movimentacaopas { get; set; }
+    public virtual DbSet<MovimentacaoPA> MovimentacoesPAs { get; set; }
 
-    public virtual DbSet<Terminal> Terminals { get; set; }
+    public virtual DbSet<Terminal> Terminais { get; set; }
 
-    public virtual DbSet<TiposOperacao> Tiposoperacaos { get; set; }
+    public virtual DbSet<TiposOperacao> TiposOperacoes { get; set; }
 
-    public virtual DbSet<TipoTerminal> Tipoterminals { get; set; }
+    public virtual DbSet<TipoTerminal> TipoTerminais { get; set; }
 
-    public virtual DbSet<TransacoesInterbancario> Transacoesinterbancarios { get; set; }
+    public virtual DbSet<TransacoesInterbancario> TransacoesInterbancarios { get; set; }
 
     public virtual DbSet<Transportadora> Transportadoras { get; set; }
 
-    public virtual DbSet<TransportadorasPA> Transportadoraspas { get; set; }
+    public virtual DbSet<TransportadorasPA> TransportadorasPAs { get; set; }
 
-    public virtual DbSet<UnidadeInstituicao> Unidadeinstituicaos { get; set; }
+    public virtual DbSet<UnidadeInstituicao> UnidadeInstituicoes { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 

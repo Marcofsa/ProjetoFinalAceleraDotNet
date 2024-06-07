@@ -1,26 +1,30 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../utils/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrls: ['./login.component.scss'],
 })
+
 export class LoginComponent {
   login: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
-  onSubmit(event: Event) {
+  constructor(private router: Router, private authService: AuthService) {}
 
+  onSubmit(event: Event) {
     event.preventDefault();
 
-    if (this.login === 'user' && this.password === '123') {
-      this.router.navigate([
-        '/src/app/components//balance/balance.component.html',
-      ]);
-    } else {
-      alert('Login ou senha inválidos');
-    }
+    this.authService.login(this.login, this.password).subscribe(
+      (response) => {
+        // Navegar para o dashboard após login bem-sucedido
+        this.router.navigate(['/balance']);
+      },
+      (error) => {
+        alert('Login ou senha inválidos');
+      }
+    );
   }
 }

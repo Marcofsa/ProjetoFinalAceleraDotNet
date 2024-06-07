@@ -1,56 +1,86 @@
-create table projetoacelera.UnidadeInstituicao (
+create table db_acelera.UnidadeInstituicao (
 	IDUNIDADEINST int NOT NULL,
     NOMEUNIDADE varchar(100) NOT NULL,
     CODTIPOUNIDADE int NOT NULL,
     PRIMARY KEY (IDUNIDADEINST)    
 );
 
-create table projetoacelera.Transportadoras (
+create table db_acelera.Transportadoras (
 	CNPJTRANSPORTADORA varchar(14) NOT NULL,
     DESCTRANSPORTADORA varchar (100) NOT NULL
 );
 
-create table projetoacelera.Usuario (
+create table db_acelera.Usuario (
 	IDUSUARIO varchar(30) NOT NULL,
     IDUNIDADEINSTUSUARIO int NOT NULL,
     DESCNOMEUSUARIO varchar(100) NOT NULL,
     PRIMARY KEY (IDUSUARIO),
-    FOREIGN KEY (IDUNIDADEINSTUSUARIO) REFERENCES projetoacelera.UnidadeInstituicao(IDUNIDADEINST)
+    FOREIGN KEY (IDUNIDADEINSTUSUARIO) REFERENCES db_acelera.UnidadeInstituicao(IDUNIDADEINST)
 );
 
-create table projetoacelera.TipoTerminal (
+create table db_acelera.TipoTerminal (
 	IDTIPOTERMINAL int NOT NULL,
 	DESCTERMINAL varchar(30) NOT NULL,
     PRIMARY KEY (IDTIPOTERMINAL)
 );
 
-create table projetoacelera.Terminal (
+create table db_acelera.Terminal (
 	IDUNIDADEINST int NOT NULL,
     NUMTERMINAL int NOT NULL,
     IDTIPOTERMINAL int NOT NULL,
     IDUSUARIO varchar(30),
     PRIMARY KEY (IDUNIDADEINST, NUMTERMINAL),
-    FOREIGN KEY (IDUNIDADEINST) REFERENCES projetoacelera.UnidadeInstituicao(IDUNIDADEINST),
-    FOREIGN KEY (IDTIPOTERMINAL) REFERENCES projetoacelera.TipoTerminal(IDTIPOTERMINAL), 
-	FOREIGN KEY (IDUSUARIO) REFERENCES projetoacelera.Usuario(IDUSUARIO)
+    FOREIGN KEY (IDUNIDADEINST) REFERENCES db_acelera.UnidadeInstituicao(IDUNIDADEINST),
+    FOREIGN KEY (IDTIPOTERMINAL) REFERENCES db_acelera.TipoTerminal(IDTIPOTERMINAL), 
+	FOREIGN KEY (IDUSUARIO) REFERENCES db_acelera.Usuario(IDUSUARIO)
 );
 
-create table projetoacelera.TransportadorasPA (
-	CNPJTRANSPORTADORA varchar(14) NOT NULL,
+create table db_acelera.TransportadorasPA (
+    CNPJTRANSPORTADORA varchar(14) NOT NULL,
     IDPONTOATENDIMENTO int NOT NULL,
     PRIMARY KEY (CNPJTRANSPORTADORA, IDPONTOATENDIMENTO),
-    FOREIGN KEY (IDPONTOATENDIMENTO) REFERENCES projetoacelera.UnidadeInstituicao(IDUNIDADEINST)
+    FOREIGN KEY (IDPONTOATENDIMENTO) REFERENCES db_acelera.UnidadeInstituicao(IDUNIDADEINST)
 );
 
-create table projetoacelera.LimitesTerminal (
+create table db_acelera.LimitesTerminal (
 	IDPONTOATENDIMENTO int NOT NULL,
     CODIGOTIPOTERMINAL int NOT NULL,
     LIM_SUPERIOR int,
     LIM_INFERIOR int,
     PRIMARY KEY (IDPONTOATENDIMENTO,CODIGOTIPOTERMINAL),
-    FOREIGN KEY (IDPONTOATENDIMENTO) REFERENCES projetoacelera.UnidadeInstituicao(IDUNIDADEINST),
-    FOREIGN KEY (CODIGOTIPOTERMINAL) REFERENCES projetoacelera.TipoTerminal(IDTIPOTERMINAL)
+    FOREIGN KEY (IDPONTOATENDIMENTO) REFERENCES db_acelera.UnidadeInstituicao(IDUNIDADEINST),
+    FOREIGN KEY (CODIGOTIPOTERMINAL) REFERENCES db_acelera.TipoTerminal(IDTIPOTERMINAL)
 );
 
+create table db_acelera.TiposOperacao (
+    IDGRUPOOPCAIXA int NOT NULL,
+    IDOPERACAOCAIXA int NOT NULL,
+    DESCRICAOOPERACAO varchar(100) NOT NULL,
+    HISTORICO int NOT NULL,
+    DESCRICAOHISTORICO varchar(100) NOT NULL,
+    SENSIBILIZACAO bool,
+    PRIMARY KEY (IDGRUPOOPCAIXA, IDOPERACAOCAIXA, HISTORICO)
+);
 
+create table db_acelera.TransacoesInterbancario (
+    DATAMOVIMENTO datetime NOT NULL,
+    BANCO int NOT NULL,
+    AGENCIA int NOT NULL,
+    OPERACAO varchar(6) NOT NULL,
+    SITUACAO varchar(20) NOT NULL,
+    VALOR decimal(15,2) NOT NULL
+);
 
+create table db_acelera.MovimentacaoPA (
+    DATALANCAMENTO datetime NOT NULL,
+    CNPJTRANSPORTADORA varchar(14) NOT NULL,
+    IDPONTOATENDIMENTO int NOT NULL,
+    IDTIPOTERMINAL int NOT NULL,
+    IDGRUPOOPCAIXA int NOT NULL,
+    IDOPERACAOCAIXA int NOT NULL,
+    HISTORICO int NOT NULL,
+    VALOR decimal(15,2) NOT NULL,
+    FOREIGN KEY (CNPJTRANSPORTADORA, IDPONTOATENDIMENTO) REFERENCES db_acelera.TransportadorasPA(CNPJTRANSPORTADORA, IDPONTOATENDIMENTO),
+    FOREIGN KEY (IDTIPOTERMINAL) REFERENCES db_acelera.TipoTerminal(IDTIPOTERMINAL),
+    FOREIGN KEY (IDGRUPOOPCAIXA, IDOPERACAOCAIXA, HISTORICO) REFERENCES db_acelera.TiposOperacao(IDGRUPOOPCAIXA, IDOPERACAOCAIXA, HISTORICO)
+);

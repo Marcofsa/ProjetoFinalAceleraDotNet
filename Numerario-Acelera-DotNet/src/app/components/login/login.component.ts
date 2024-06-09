@@ -19,7 +19,7 @@ export class LoginComponent {
 
     this.authService.login(this.login, this.password).subscribe(
       (response) => {
-        // Navegar para o dashboard após login bem-sucedido
+        // Navegar para os Saldos após login bem-sucedido
         this.router.navigate(['/balance']);
       },
       (error) => {

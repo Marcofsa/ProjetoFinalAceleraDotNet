@@ -1,6 +1,6 @@
 import { BrowserModule, provideClientHydration,} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,27 +16,20 @@ export function tokenGetter() {
   return JSON.parse(localStorage.getItem('') || '{}').token;
 }
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    DashboardComponent,
-    BalanceComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        allowedDomains: ['localhost:5001'],
-        disallowedRoutes: ['http://localhost:5001/api/auth/login'],
-      },
-    }),
-  ],
-  providers: [AuthService, AuthGuard, provideClientHydration()],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        LoginComponent,
+        DashboardComponent,
+        BalanceComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: tokenGetter,
+                allowedDomains: ['localhost:5001'],
+                disallowedRoutes: ['http://localhost:5001/api/auth/login'],
+            },
+        })], providers: [AuthService, AuthGuard, provideClientHydration(), provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

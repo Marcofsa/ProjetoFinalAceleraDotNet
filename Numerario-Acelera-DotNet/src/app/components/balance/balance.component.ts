@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 
-
 interface BalanceData {
   pontoAtendimento: string;
   local: string;
@@ -22,6 +21,8 @@ export class BalanceComponent implements OnInit {
   paginaAtual: number = 1;
   itensPorPage: number = 10;
 
+  Math = Math;
+
   ngOnInit(): void {
     this.saldoDados = [
       {
@@ -37,6 +38,13 @@ export class BalanceComponent implements OnInit {
         lastUpdate: '01/05/2024',
         data: '25/05/2024',
         montante: '$1,200,000',
+      },
+      {
+        pontoAtendimento: 'P.A. São Paulo',
+        local: 'Bauru - SP',
+        lastUpdate: '07/05/2024',
+        data: '25/05/2024',
+        montante: '$6,200,000',
       },
     ];
     this.dadosFiltrados = this.saldoDados;

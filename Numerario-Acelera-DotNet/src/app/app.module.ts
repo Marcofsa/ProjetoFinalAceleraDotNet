@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BalanceComponent } from './components/balance/balance.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './utils/auth.service';
 import { AuthGuard } from './utils/auth.guard';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -33,6 +33,7 @@ export function tokenGetter() {
     AppRoutingModule,
     NgxPaginationModule,
     FormsModule,
+    ReactiveFormsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

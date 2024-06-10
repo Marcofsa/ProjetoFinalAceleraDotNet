@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../utils/auth.service';
 
 @Component({
@@ -7,24 +8,31 @@ import { AuthService } from '../../utils/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-
 export class LoginComponent {
-  login: string = '';
-  password: string = '';
+  loginForm: FormGroup;
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router, 
+    private authService: AuthService,
+    private formBuilder: FormBuilder
+  ) {
+    this.loginForm = this.formBuilder.group({
+      login: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-  onSubmit(event: Event) {
-    event.preventDefault();
-
-    this.authService.login(this.login, this.password).subscribe(
-      (response) => {
-     
-        this.router.navigate(['/balance']);
-      },
-      (error) => {
-        alert('Login ou senha inválidos');
-      }
-    );
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const { login, password } = this.loginForm.value;
+      this.authService.login(login, password).subscribe(
+        (response) => {
+          this.router.navigate(['/balance']);
+        },
+        (error) => {
+          alert('Login ou senha inválidos');
+        }
+      );
+    }
   }
 }

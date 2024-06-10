@@ -14,25 +14,38 @@ import { BalanceComponent } from './components/balance/balance.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './utils/auth.service';
 import { AuthGuard } from './utils/auth.guard';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 export function tokenGetter() {
   return JSON.parse(localStorage.getItem('') || '{}').token;
 }
 
-@NgModule({ declarations: [
-        AppComponent,
-        LoginComponent,
-        DashboardComponent,
-        BalanceComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        JwtModule.forRoot({
-            config: {
-                tokenGetter: tokenGetter,
-                allowedDomains: ['localhost:5001'],
-                disallowedRoutes: ['http://localhost:5001/api/auth/login'],
-            },
-        })], providers: [AuthService, AuthGuard, provideClientHydration(), provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    BalanceComponent,
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgxPaginationModule,
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5001'],
+        disallowedRoutes: ['http://localhost:5001/api/auth/login'],
+      },
+    }),
+  ],
+  providers: [
+    AuthService,
+    AuthGuard,
+    provideClientHydration(),
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
+})
 export class AppModule {}

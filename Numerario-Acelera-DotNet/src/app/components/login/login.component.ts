@@ -13,22 +13,23 @@ export class LoginComponent {
   loginForm: FormGroup;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthService,
     private formBuilder: FormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
       login: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
-  onSubmit() {
-     const userCredentials: LoginModel = {
-       idUser: 0,
-       NomeUsuario: this.loginForm.value.login,
-       Senha: this.loginForm.value.password,
-     };
+  public onClick() {
+    debugger;
+    const userCredentials: LoginModel = {
+      idUser: 0,
+      NomeUsuario: this.loginForm.value.login,
+      Senha: this.loginForm.value.password,
+    };
 
     if (this.loginForm.valid) {
       this.authService.login(userCredentials).subscribe(

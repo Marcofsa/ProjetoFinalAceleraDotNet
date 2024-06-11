@@ -23,6 +23,11 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    this.loginForm.setValue({
+      login: 'user',
+      password: '123',
+    });
+
     if (this.loginForm.valid) {
       const { login, password } = this.loginForm.value;
       this.authService.login(login, password).subscribe(

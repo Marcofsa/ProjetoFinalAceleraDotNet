@@ -7,6 +7,8 @@ import { ModalService } from './utils/modals/modal.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
+  
   title = 'Numerario-Acelera-DotNet';
 
   constructor(public modalService: ModalService) {}
@@ -18,4 +20,5 @@ export class AppComponent {
   closeModal() {
     this.modalService.closeModal();
   }
+  
 }

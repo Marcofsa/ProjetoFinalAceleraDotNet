@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../enviroments/enviroments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = ''; //ADD URL DA API
+  private apiUrl = environment; //ADD URL DA API
   private loggedIn: boolean = false; 
   constructor(private http: HttpClient) {}
 

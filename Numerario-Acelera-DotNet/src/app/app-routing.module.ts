@@ -11,12 +11,16 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [{ AuthGuard }],
+    canActivate: [AuthGuard],
   },
   {
     path: 'balance',
     component: BalanceComponent,
-    canActivate: [{ AuthGuard }],
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    redirectTo: '/balance',
   },
 ];
 

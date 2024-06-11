@@ -18,7 +18,7 @@ export class AuthService {
   login(credentials: LoginModel): Observable<any> {
 
     return this.http
-      .post<any>(`${this.apiUrl}/login`, credentials) 
+      .post<any>(`${this.apiUrl}/doLogin`, credentials) 
       .pipe(
         map((response) => {
           if (response && response.token) {
@@ -42,7 +42,7 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{ "token": "2"}');
     return currentUser ? currentUser.token : null;
   }
 

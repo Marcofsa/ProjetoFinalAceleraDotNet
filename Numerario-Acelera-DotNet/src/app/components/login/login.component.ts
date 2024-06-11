@@ -23,7 +23,7 @@ export class LoginComponent {
     });
   }
 
-  public onClick() {
+  onClick() {
     debugger;
     const userCredentials: LoginModel = {
       idUser: 0,

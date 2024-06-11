@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../utils/auth.service';
+import { LoginModel } from '../models/model.login';
 
 @Component({
   selector: 'app-login',
@@ -23,14 +24,14 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.loginForm.setValue({
-      login: 'user',
-      password: '123',
-    });
+     const userCredentials: LoginModel = {
+       idUser: 0,
+       NomeUsuario: this.loginForm.value.login,
+       Senha: this.loginForm.value.password,
+     };
 
     if (this.loginForm.valid) {
-      const { login, password } = this.loginForm.value;
-      this.authService.login(login, password).subscribe(
+      this.authService.login(userCredentials).subscribe(
         (response) => {
           this.router.navigate(['/balance']);
         },

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
+import { ChartmodalComponent } from '../chartmodal/chartmodal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 interface BalanceData {
   pontoAtendimento: string;
@@ -7,6 +9,7 @@ interface BalanceData {
   lastUpdate: string;
   data: string;
   montante: string;
+  idPA: string;
 }
 
 @Component({
@@ -23,9 +26,12 @@ export class BalanceComponent implements OnInit {
 
   Math = Math;
 
+  constructor(private modalService: NgbModal) {}
+
   ngOnInit(): void {
     this.saldoDados = [
       {
+        idPA: '',
         pontoAtendimento: 'P.A. Londrina',
         local: 'Londrina - PR',
         lastUpdate: '02/04/2024',
@@ -33,6 +39,7 @@ export class BalanceComponent implements OnInit {
         montante: '$5.162,700',
       },
       {
+        idPA: '',
         pontoAtendimento: 'P.A. Londrina',
         local: 'Londrina - PR',
         lastUpdate: '01/05/2024',
@@ -40,6 +47,7 @@ export class BalanceComponent implements OnInit {
         montante: '$1,200,000',
       },
       {
+        idPA: '',
         pontoAtendimento: 'P.A. São Paulo',
         local: 'Bauru - SP',
         lastUpdate: '07/05/2024',
@@ -69,5 +77,10 @@ export class BalanceComponent implements OnInit {
       SheetNames: ['data'],
     };
     XLSX.writeFile(workbook, 'balance_report.xlsx');
+  }
+
+  openChartModal() {
+    const modalRef = this.modalService.open(ChartmodalComponent);
+    // Você pode passar dados para o modal usando modalRef.componentInstance
   }
 }

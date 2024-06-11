@@ -21,6 +21,7 @@ import { AuthGuard } from './utils/auth.guard';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartmodalComponent } from './components/chartmodal/chartmodal.component';
 
 // Função para obter o token do localStorage
 export function tokenGetter() {
@@ -34,6 +35,7 @@ export function tokenGetter() {
     LoginComponent,
     DashboardComponent,
     BalanceComponent,
+    ChartmodalComponent,
   ],
   bootstrap: [AppComponent],
   imports: [

@@ -30,15 +30,8 @@
           ></a>
           <hr class="sidebar-divider" />
           <ul class="navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item">
-              <button class="nav-link active" href="dashboard.component.html"
-                ><span>Dashboard</span></button
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="balance.component.html"
-                ><span>Balance</span></a
-              >
+       <li class="nav-item">
+              <button class="nav-link btn btn-primary mb-5 my-5" routerLink="/src/app/components/balance/balance.component.html">Saldos</button>
             </li>
           </ul>
           <div class="text-center d-none d-md-inline"></div>
@@ -126,7 +119,7 @@
                     <div
                       class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in"
                     >
-                      <h6 class="dropdown-header">ALERTAS</h6>
+                      
                       <a
                         class="dropdown-item d-flex align-items-center"
                         href="#"
@@ -165,13 +158,7 @@
                       ><a
                         class="dropdown-item d-flex align-items-center"
                         href="#"
-                        ><div class="dropdown-list-image me-3">
-                          <img
-                            class="rounded-circle"
-                            src="assets/img/avatars/avatar2.jpeg"
-                          />
-                          <div class="status-indicator"></div>
-                        </div>
+                        >
                         <div class="fw-bold">
                           <div class="text-truncate">
                             <span>BLA BLÁ BLA</span>
@@ -602,3 +589,4 @@
     </div>
   </footer>
 </html>
+<router-outlet></router-outlet>

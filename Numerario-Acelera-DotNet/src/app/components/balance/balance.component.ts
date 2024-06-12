@@ -28,6 +28,8 @@ export class BalanceComponent implements OnInit {
 
   constructor(private modalService: NgbModal) {}
 
+
+  // Valores de teste chumbados na aplicação
   ngOnInit(): void {
     this.saldoDados = [
       {

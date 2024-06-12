@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Atos.WebApi.Endpoints
 {
     public class Program
@@ -19,6 +21,7 @@ namespace Atos.WebApi.Endpoints
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
             var app = builder.Build();
 

@@ -1,6 +1,6 @@
-﻿namespace Atos.WebApi.Endpoints.Models;
+﻿namespace Atos.WebApi.Endpoints.DTO;
 
-public partial class Usuario
+public class UsuarioDTO
 {
     public string IdUsuario { get; set; } = null!;
 

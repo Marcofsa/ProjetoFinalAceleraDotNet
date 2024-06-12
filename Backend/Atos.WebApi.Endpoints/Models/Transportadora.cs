@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Atos.WebApi.Endpoints.Models;
+﻿namespace Atos.WebApi.Endpoints.Models;
 
 public partial class Transportadora
 {

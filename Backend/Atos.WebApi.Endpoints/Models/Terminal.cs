@@ -5,13 +5,13 @@ namespace Atos.WebApi.Endpoints.Models;
 
 public partial class Terminal
 {
-    public int IdUnidadeiIst { get; set; }
+    public int IdUnidadeInst { get; set; }
 
     public int NumTerminal { get; set; }
 
     public int IdTipoTerminal { get; set; }
 
-    public string? Idusuario { get; set; }
+    public string? IdUsuario { get; set; }
 
     public virtual TipoTerminal TipoTerminal { get; set; } = null!;
 

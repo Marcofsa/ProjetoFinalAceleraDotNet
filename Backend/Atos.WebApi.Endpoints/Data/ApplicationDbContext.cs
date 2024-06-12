@@ -69,15 +69,10 @@ public partial class ApplicationDbContext : DbContext
                 .HasNoKey()
                 .ToTable("movimentacaopa");
 
-            entity.HasIndex(e => new { e.CNPJTransportadora, e.IdPontoAtendimento }, "CNPJTRANSPORTADORA");
-
             entity.HasIndex(e => new { e.IdGrupoOpCaixa, e.IdOperacaoCaixa, e.Historico }, "IDGRUPOOPCAIXA");
 
-            entity.HasIndex(e => e.IdTipoTerminal, "IDTIPOTERMINAL");
+            entity.HasIndex(e => e.NumTerminal, "NUMTERMINAL");
 
-            entity.Property(e => e.CNPJTransportadora)
-                .HasMaxLength(14)
-                .HasColumnName("CNPJTRANSPORTADORA");
             entity.Property(e => e.DataLancamento)
                 .HasColumnType("datetime")
                 .HasColumnName("DATALANCAMENTO");
@@ -85,18 +80,13 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.IdGrupoOpCaixa).HasColumnName("IDGRUPOOPCAIXA");
             entity.Property(e => e.IdOperacaoCaixa).HasColumnName("IDOPERACAOCAIXA");
             entity.Property(e => e.IdPontoAtendimento).HasColumnName("IDPONTOATENDIMENTO");
-            entity.Property(e => e.IdTipoTerminal).HasColumnName("IDTIPOTERMINAL");
+            entity.Property(e => e.NumTerminal).HasColumnName("NUMTERMINAL");
             entity.Property(e => e.Valor)
                 .HasPrecision(15, 2)
                 .HasColumnName("VALOR");
 
-            entity.HasOne(d => d.TipoTerminal).WithMany()
-                .HasForeignKey(d => d.IdTipoTerminal)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("movimentacaopa_ibfk_2");
-
-            entity.HasOne(d => d.TransportadorasPA).WithMany()
-                .HasForeignKey(d => new { d.CNPJTransportadora, d.IdPontoAtendimento })
+            entity.HasOne(d => d.Terminal).WithMany()
+                .HasForeignKey(d => new { d.NumTerminal, d.IdPontoAtendimento })
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("movimentacaopa_ibfk_1");
 
@@ -108,7 +98,7 @@ public partial class ApplicationDbContext : DbContext
 
         modelBuilder.Entity<Terminal>(entity =>
         {
-            entity.HasKey(e => new { e.IdUnidadeiIst, e.NumTerminal })
+            entity.HasKey(e => new { e.IdUnidadeInst, e.NumTerminal })
                 .HasName("PRIMARY")
                 .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
@@ -116,12 +106,12 @@ public partial class ApplicationDbContext : DbContext
 
             entity.HasIndex(e => e.IdTipoTerminal, "IDTIPOTERMINAL");
 
-            entity.HasIndex(e => e.Idusuario, "IDUSUARIO");
+            entity.HasIndex(e => e.IdUsuario, "IDUSUARIO");
 
-            entity.Property(e => e.IdUnidadeiIst).HasColumnName("IDUNIDADEINST");
+            entity.Property(e => e.IdUnidadeInst).HasColumnName("IDUNIDADEINST");
             entity.Property(e => e.NumTerminal).HasColumnName("NUMTERMINAL");
             entity.Property(e => e.IdTipoTerminal).HasColumnName("IDTIPOTERMINAL");
-            entity.Property(e => e.Idusuario)
+            entity.Property(e => e.IdUsuario)
                 .HasMaxLength(30)
                 .HasColumnName("IDUSUARIO");
 
@@ -131,12 +121,12 @@ public partial class ApplicationDbContext : DbContext
                 .HasConstraintName("terminal_ibfk_2");
 
             entity.HasOne(d => d.UnidadeInstituicao).WithMany(p => p.Terminais)
-                .HasForeignKey(d => d.IdUnidadeiIst)
+                .HasForeignKey(d => d.IdUnidadeInst)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("terminal_ibfk_1");
 
             entity.HasOne(d => d.Usuario).WithMany(p => p.Terminals)
-                .HasForeignKey(d => d.Idusuario)
+                .HasForeignKey(d => d.IdUsuario)
                 .HasConstraintName("terminal_ibfk_3");
         });
 
@@ -248,22 +238,22 @@ public partial class ApplicationDbContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.Idusuario).HasName("PRIMARY");
+            entity.HasKey(e => e.IdUsuario).HasName("PRIMARY");
 
             entity.ToTable("usuario");
 
-            entity.HasIndex(e => e.Idunidadeinstusuario, "IDUNIDADEINSTUSUARIO");
+            entity.HasIndex(e => e.IdUnidadeInstUsuario, "IDUNIDADEINSTUSUARIO");
 
-            entity.Property(e => e.Idusuario)
+            entity.Property(e => e.IdUsuario)
                 .HasMaxLength(30)
                 .HasColumnName("IDUSUARIO");
-            entity.Property(e => e.Descnomeusuario)
+            entity.Property(e => e.DescNomeUsuario)
                 .HasMaxLength(100)
                 .HasColumnName("DESCNOMEUSUARIO");
-            entity.Property(e => e.Idunidadeinstusuario).HasColumnName("IDUNIDADEINSTUSUARIO");
+            entity.Property(e => e.IdUnidadeInstUsuario).HasColumnName("IDUNIDADEINSTUSUARIO");
 
             entity.HasOne(d => d.UnidadeInstituicao).WithMany(p => p.Usuarios)
-                .HasForeignKey(d => d.Idunidadeinstusuario)
+                .HasForeignKey(d => d.IdUnidadeInstUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("usuario_ibfk_1");
         });

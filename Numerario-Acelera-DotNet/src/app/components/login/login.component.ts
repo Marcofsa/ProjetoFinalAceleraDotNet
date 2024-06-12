@@ -24,7 +24,7 @@ export class LoginComponent {
   }
 
   onClick() {
-    debugger;
+    console.log('CLICOU DESGRAÇA')
     const userCredentials: LoginModel = {
       idUser: 0,
       NomeUsuario: this.loginForm.value.login,

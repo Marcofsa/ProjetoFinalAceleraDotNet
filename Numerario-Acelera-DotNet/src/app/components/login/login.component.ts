@@ -41,5 +41,18 @@ export class LoginComponent {
         }
       );
     }
+
+    //Login Chumbado
+    // let userTest = 'user';
+    // let passCode = '123';
+    
+    // if(this.loginForm.valid) {
+    //   if(userCredentials.NomeUsuario === userTest && userCredentials.Senha === passCode) {
+    //     this.router.navigate(['/balance']);
+        
+    //   }else{
+    //     alert('Login ou senha inválidos');
+    //   }
+    // }
   }
 }

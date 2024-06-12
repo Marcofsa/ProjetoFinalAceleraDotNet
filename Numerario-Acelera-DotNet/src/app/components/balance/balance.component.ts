@@ -83,6 +83,5 @@ export class BalanceComponent implements OnInit {
 
   openChartModal() {
     const modalRef = this.modalService.open(ChartmodalComponent);
-    // Você pode passar dados para o modal usando modalRef.componentInstance
   }
 }

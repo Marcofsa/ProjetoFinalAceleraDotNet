@@ -51,6 +51,6 @@ export class DashboardComponent {
   ];
 
   constructor() {
-    // Aqui você poderia inicializar a propriedade transacoes com dados de um serviço, se necessário
+
   }
 }

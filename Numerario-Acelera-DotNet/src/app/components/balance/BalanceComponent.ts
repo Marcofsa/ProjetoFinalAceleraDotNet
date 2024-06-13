@@ -2,15 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { ChartmodalComponent } from '../chartmodal/chartmodal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BalanceData } from './balance.component';
 
-export interface BalanceData {
-  pontoAtendimento: string;
-  local: string;
-  lastUpdate: string;
-  data: string;
-  montante: string;
-  idPA: string;
-}
 
 @Component({
   selector: 'app-balance',
@@ -26,7 +19,7 @@ export class BalanceComponent implements OnInit {
 
   Math = Math;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.saldoDados = [
@@ -60,10 +53,9 @@ export class BalanceComponent implements OnInit {
 
   buscaSaldos(): void {
     this.dadosFiltrados = this.saldoDados.filter(
-      (item) =>
-        item.pontoAtendimento
-          .toLowerCase()
-          .includes(this.searchQuery.toLowerCase()) ||
+      (item) => item.pontoAtendimento
+        .toLowerCase()
+        .includes(this.searchQuery.toLowerCase()) ||
         item.local.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }

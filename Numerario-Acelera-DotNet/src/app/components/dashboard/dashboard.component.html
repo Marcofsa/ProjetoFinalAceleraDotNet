@@ -1,406 +1,80 @@
-<link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" />
 <div id="wrapper">
   <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark">
     <div class="container-fluid d-flex flex-column p-0">
       <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <hr />
-        <img width="100px" height="100px" src="/assets/crypt.png" style="margin-top: 25px;" />
-        <div class="sidebar-brand-text"></div>
+        <img width="100px" height="100px" src="/assets/crypt.png" style="margin-top: 25px; display: block;" />
       </a>
-      <hr class="sidebar-divider" />
+      <hr class="sidebar-divider my-auto" />
       <ul class="navbar-nav text-light" id="accordionSidebar">
         <li class="nav-item">
-          <button class="nav-link btn btn-primary mb-5 my-5"
-            routerLink="/src/app/components/balance/balance.component.html">Saldos</button>
+          <a class="nav-link btn btn-primary mb-2 my-2 p-3" href="/balance">
+            <span>Saldos</span>
+          </a>
         </li>
       </ul>
-      <div class="text-center d-none d-md-inline"></div>
     </div>
   </nav>
   <div class="d-flex flex-column" id="content-wrapper">
     <div id="content">
-      <nav class="navbar navbar-expand bg-white shadow mb-4 topbar static-top navbar-light">
-        <div class="container-fluid">
-          <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button">
-            <i class="fas fa-bars"></i>
-          </button>
-          <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input class="bg-light form-control border-0 small" type="text" placeholder="Pesquisar" /><button
-                class="btn btn-primary py-0" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search"
-                  viewBox="0 0 16 16">
-                  <path
-                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg>
-              </button>
-            </div>
-          </form>
-          <ul class="navbar-nav flex-nowrap ms-auto">
-            <li class="nav-item dropdown d-sm-none no-arrow">
-              <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><i
-                  class="fas fa-search"></i></a>
-              <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="me-auto navbar-search w-100">
-                  <div class="input-group">
-                    <input class="bg-light form-control border-0 small" type="text" placeholder="Buscar por..." />
-                    <div class="input-group-append">
-                      <button class="btn btn-primary py-0" type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                          class="bi bi-search" viewBox="0 0 16 16">
-                          <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-              <div class="nav-item dropdown no-arrow">
-                <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
-
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="me-3">
-                      <div class="bg-warning icon-circle">
-                        <i class="fas fa-exclamation-triangle text-white"></i>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item dropdown no-arrow mx-1">
-              <div class="nav-item dropdown no-arrow">
-                <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image me-3">
-                      <img class="rounded-circle" src="assets/img/avatars/avatar4.jpeg" />
-                      <div class="bg-success status-indicator"></div>
-                    </div>
-                    <div class="fw-bold">
-                      <div class="text-truncate">
-                        <span>OLÁ.</span>
-                      </div>
-                      <p class="small text-gray-500 mb-0">FULANO DE TAL</p>
-                    </div>
-                  </a><a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="fw-bold">
-                      <div class="text-truncate">
-                        <span>BLA BLÁ BLA</span>
-                      </div>
-                      <p class="small text-gray-500 mb-0">JUNIN</p>
-                    </div>
-                  </a><a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image me-3">
-                      <img class="rounded-circle" src="assets/img/avatars/avatar3.jpeg" />
-                      <div class="bg-warning status-indicator"></div>
-                    </div>
-                    <div class="fw-bold">
-                      <div class="text-truncate">
-                        <span>BLA BLA BLA</span>
-                      </div>
-                      <p class="small text-gray-500 mb-0">CICLANO</p>
-                    </div>
-                  </a><a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image me-3">
-                      <img class="rounded-circle" src="assets/img/avatars/avatar5.jpeg" />
-                      <div class="bg-success status-indicator"></div>
-                    </div>
-                    <div class="fw-bold">
-                      <div class="text-truncate">
-                        <span>BLA BLA BLA</span>
-                      </div>
-                      <p class="small text-gray-500 mb-0">BELTRANO</p>
-                    </div>
-                  </a><a class="dropdown-item text-center small text-gray-500" href="#">MOSTRAR TODOS OS ALERTAS</a>
-                </div>
-              </div>
-              <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown">
-              </div>
-            </li>
-            <div class="d-none d-sm-block topbar-divider"></div>
-            <li class="nav-item dropdown no-arrow">
-              <div class="nav-item dropdown no-arrow">
-                <div><button class="btn btn-primary mb-2 my-2" routerLink="/login">Logout</button></div>
-
-                <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
-                  <a class="dropdown-item" href="#"><i
-                      class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;TRANSPORTADORA</a><a
-                    class="dropdown-item" href="#"><i
-                      class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;CONFIGURAÇÕES</a><a
-                    class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;LOG
-                    DE ATIVIDADE</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#"><i
-                      class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;SAIR</a>
-                </div>
-              </div>
-            </li>
-          </ul>
+      <section class="hero text-center text-white" style="background-image: url('caminho/para/imagem.jpg');">
+        <div class="container">
         </div>
-      </nav>
-      <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-          <h3 class="text-dark mb-0">REGISTROS</h3>
-          <button class="btn btn-primary">
-            Gerar Relatório
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-              class="bi bi-filetype-xlsx" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M14 4.5V11h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM7.86 14.841a1.13 1.13 0 0 0 .401.823q.195.162.479.252.284.091.665.091.507 0 .858-.158.355-.158.54-.44a1.17 1.17 0 0 0 .187-.656q0-.336-.135-.56a1 1 0 0 0-.375-.357 2 2 0 0 0-.565-.21l-.621-.144a1 1 0 0 1-.405-.176.37.37 0 0 1-.143-.299q0-.234.184-.384.188-.152.513-.152.214 0 .37.068a.6.6 0 0 1 .245.181.56.56 0 0 1 .12.258h.75a1.1 1.1 0 0 0-.199-.566 1.2 1.2 0 0 0-.5-.41 1.8 1.8 0 0 0-.78-.152q-.44 0-.777.15-.336.149-.527.421-.19.273-.19.639 0 .302.123.524t.351.367q.229.143.54.213l.618.144q.31.073.462.193a.39.39 0 0 1 .153.326.5.5 0 0 1-.085.29.56.56 0 0 1-.255.193q-.168.07-.413.07-.176 0-.32-.04a.8.8 0 0 1-.249-.115.58.58 0 0 1-.255-.384zm-3.726-2.909h.893l-1.274 2.007 1.254 1.992h-.908l-.85-1.415h-.035l-.853 1.415H1.5l1.24-2.016-1.228-1.983h.931l.832 1.438h.036zm1.923 3.325h1.697v.674H5.266v-3.999h.791zm7.636-3.325h.893l-1.274 2.007 1.254 1.992h-.908l-.85-1.415h-.035l-.853 1.415h-.861l1.24-2.016-1.228-1.983h.931l.832 1.438h.036z" />
-            </svg>
-          </button>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-xl-3 mb-4">
-            <div class="card shadow border-start-primary py-2">
-              <div class="card-body">
-                <div class="row align-items-center no-gutters">
-                  <div class="col me-2">
-                    <div class="text-uppercase text-primary fw-bold text-xs mb-1">
-                      <span>ENTRADAS DE SALDO (MENSAL)</span>
-                    </div>
-                    <div class="text-dark fw-bold h5 mb-0">
-                      <span>R$40,000</span>
-                    </div>
+      </section>
+      <div class="container-fluid mt-4">
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">Detalhes das Transações</p>
+          </div>
+          <div class="card-body">
+            <div class="container">
+              <div class="d-flex justify-content-between align-items-center bg-light p-3">
+                <div> Data inicial:<input class="form-control" type="date" id="dataInicial" name="dataInicial"></div>
+                <div> Data final:<input class="form-control" type="date" id="dataFinal" name="dataFinal"></div>
+                <button class="btn btn-primary">Pesquisar</button>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <section class="hero text-white bg-primary">
+                <div class="container">
+                </div>
+              </section>
+              <div class="container mt-4">
+                <div class="card shadow">
+                  <div class="card-header bg-primary text-white">
+                    <h5 class="m-0 fw-bold">Transações Financeiras</h5>
                   </div>
-                  <div class="col-auto">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-striped">
+                        <thead>
+                          <tr class="bg-primary text-white">
+                            <th scope="col">Data</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Agência</th>
+                            <th scope="col">Operação</th>
+                            <th scope="col">Situação</th>
+                            <th scope="col">Valor (BRL)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let transacao of transacoes">
+                            <td>{{ transacao.data }}</td>
+                            <td>{{ transacao.hora }}</td>
+                            <td>{{ transacao.agencia }}</td>
+                            <td>{{ transacao.operacao }}</td>
+                            <td>{{ transacao.situacao }}</td>
+                            <td>{{ transacao.valor | currency:'BRL' }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-xl-3 mb-4">
-            <div class="card shadow border-start-success py-2">
-              <div class="card-body">
-                <div class="row align-items-center no-gutters">
-                  <div class="col me-2">
-                    <div class="text-uppercase text-success fw-bold text-xs mb-1">
-                      <span>ENTRADA DE SALDO (ANUAL)</span>
-                    </div>
-                    <div class="text-dark fw-bold h5 mb-0">
-                      <span>R$215,000</span>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3 mb-4">
-            <div class="card shadow border-start-info py-2">
-              <div class="card-body">
-                <div class="row align-items-center no-gutters">
-                  <div class="col me-2">
-                    <div class="text-uppercase text-info fw-bold text-xs mb-1">
-                      <span>????</span>
-                    </div>
-                    <div class="row g-0 align-items-center">
-                      <div class="col-auto">
-                        <div class="text-dark fw-bold h5 mb-0 me-3">
-                          <span>50%</span>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                            style="width: 50%">
-                            <span class="visually-hidden">50%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3 mb-4">
-            <div class="card shadow border-start-warning py-2">
-              <div class="card-body">
-                <div class="row align-items-center no-gutters">
-                  <div class="col me-2">
-                    <div class="text-uppercase text-warning fw-bold text-xs mb-1">
-                      <span>PENDÊNCIAS</span>
-                    </div>
-                    <div class="text-dark fw-bold h5 mb-0">
-                      <span>5</span>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <i class="fas fa-comments fa-2x text-gray-300"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-5 col-xl-4">
-            <div class="card shadow mb-4">
-              <div class="card-header d-flex justify-content-between align-items-center">
-                <h6 class="text-primary fw-bold m-0">INCOMINGS</h6>
-                <div class="dropdown no-arrow">
-                  <button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown"
-                    type="button">
-                    <i class="fas fa-ellipsis-v text-gray-400"></i>
-                  </button>
-                  <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
-                    <p class="text-center dropdown-header">
-                      dropdown header:
-                    </p>
-                    <div class="dropdown-divider"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart-area"></div>
-                <div class="text-center small mt-4">
-                  <span class="me-2"><i class="fas fa-circle text-primary"></i>&nbsp;</span><span class="me-2"><i
-                      class="fas fa-circle text-success"></i>&nbsp;</span><span class="me-2"><i
-                      class="fas fa-circle text-info"></i>&nbsp;</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 mb-4">
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="text-primary fw-bold m-0">
-                  ENTRADAS E SAÍDAS (GRÁFICO)
-                </h6>
-              </div>
-              <div class="card-body">
-                <h4 class="small fw-bold">
-                  PROTEGE LONDRINA<span class="float-end">55%</span>
-                </h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                    style="width: 55%">
-                    <span class="visually-hidden">20%</span>
-                  </div>
-                </div>
-                <h4 class="small fw-bold">
-                  PROSEGUR<span class="float-end">40%</span>
-                </h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                    style="width: 40%">
-                    <span class="visually-hidden">40%</span>
-                  </div>
-                </div>
-                <h4 class="small fw-bold">
-                  PROTEGE BAURU<span class="float-end">60%</span>
-                </h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                    style="width: 60%">
-                    <span class="visually-hidden">60%</span>
-                  </div>
-                </div>
-                <h4 class="small fw-bold">
-                  PROTEGE CAMPINAS<span class="float-end">80%</span>
-                </h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                    style="width: 80%">
-                    <span class="visually-hidden">80%</span>
-                  </div>
-                </div>
-                <h4 class="small fw-bold">
-                  PROTEGE RIBEIRÃO PRETO<span class="float-end">75%</span>
-                </h4>
-                <div class="progress mb-4">
-                  <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                    style="width: 75%">
-                    <span class="visually-hidden">75%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="text-primary fw-bold m-0">
-                  LISTA DE CONFIRMAÇÃO
-                </h6>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <div class="row align-items-center no-gutters">
-                    <div class="col me-2">
-                      <h6 class="mb-0">
-                        <strong>Entrada de saldo</strong>
-                      </h6>
-                      <span class="text-xs">10:30 AM</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="form-check">
-                        <label class="form-check-label" for="formCheck-1"></label>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div class="row align-items-center no-gutters">
-                    <div class="col me-2">
-                      <h6 class="mb-0"><strong>Saída de saldo</strong></h6>
-                      <span class="text-xs">11:30 AM</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="form-check">
-                        <label class="form-check-label" for="formCheck-2"></label>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div class="row align-items-center no-gutters">
-                    <div class="col me-2">
-                      <h6 class="mb-0">
-                        <strong>Depósito via cheque</strong>
-                      </h6>
-                      <span class="text-xs">12:30 AM</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="form-check">
-                        <label class="form-check-label" for="formCheck-3"></label>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col"></div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-<!-- </div> -->
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/chart.min.js"></script>
-<script src="assets/js/bs-init.js"></script>
-<script src="assets/js/theme.js"></script>
-<footer class="bg-white sticky-footer">
-  <div class="container my-auto">
-    <div class="text-center my-auto copyright">
-      <span>Copyright © Acelera Pleno .Net 2024</span>
-    </div>
-  </div>
-</footer>

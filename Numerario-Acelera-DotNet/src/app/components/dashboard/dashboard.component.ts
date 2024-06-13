@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.scss',
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
+  
   transacoes: any[] = [
     {
       data: '2024-06-12',

@@ -25,11 +25,25 @@ export class LoginComponent {
 
   onClick() {
     console.log('MÉTODO CHAMADO')
+    
     const userCredentials: LoginModel = {
       idUser: 0,
       NomeUsuario: this.loginForm.value.login,
       Senha: this.loginForm.value.password,
     };
+
+    //Login Chumbado
+    let userTest = 'user';
+    let passCode = '123';
+    
+    if(this.loginForm.valid) {
+      if(userCredentials.NomeUsuario === userTest && userCredentials.Senha === passCode) {
+        this.router.navigate(['/balance']);
+        
+      }else{
+        alert('Login ou senha inválidos');
+      }
+    }
 
     if (this.loginForm.valid) {
       this.authService.login(userCredentials).subscribe(
@@ -42,7 +56,7 @@ export class LoginComponent {
       );
     }
 
-    //Login Chumbado
+    // //Login Chumbado
     // let userTest = 'user';
     // let passCode = '123';
     
